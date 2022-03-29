@@ -9,14 +9,14 @@ const dispatch = useDispatch();
 const navigate=useNavigate();
 const getApi = () =>{
   dispatch(getdata());
-  navigate('../usertable')
+  navigate('../apitable')
   }
 
  
   return (
     <div>
       <h1>HomeSaga</h1>
-      <button onClick={getApi}>get api</button>
+      <button onClick={getApi}>Show Api Data</button>
     </div>
   )
 }

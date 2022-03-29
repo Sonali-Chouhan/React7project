@@ -181,5 +181,13 @@ input[type="submit"]:hover {
 button[type="button"]:hover {
   background-color: rgb(176, 151, 235);
 }
- 
+.error{
+  color: red;
+} 
+/* .ToastContainer
+{
+  position:"bottom-left";
+
+} */
+
   
