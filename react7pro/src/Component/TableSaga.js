@@ -3,7 +3,9 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Delete_User } from "../Redux/Action/ActionSaga";
-import {toast} from "react-toastify"
+import { toast } from "react-toastify";
+import Table from "react-bootstrap/Table";
+import Button from 'react-bootstrap/Button'
 const TableSaga = () => {
   var dispatch = useDispatch();
   let navigate = useNavigate();
@@ -11,12 +13,12 @@ const TableSaga = () => {
   useEffect(() => {}, [obj]);
   //delete button Here
   const handleDelete = (i) => {
-    
     //toast.warn("Are you sure to delete this item?")
-  
-    toast.warn("DElete Item")
+
+    toast.warn("DElete Item", {
+      icon: "🤯",
+    });
     dispatch(Delete_User(i));
-  
   };
   //Edit button  Here
   const handleEdit = (id) => {
@@ -26,15 +28,17 @@ const TableSaga = () => {
   return (
     <div>
       <center>
-        <h1>table</h1>
+        <h1>Table </h1>
         {obj ? (
           <div>
-            <table>
+            <Table className="Tabledev" striped bordered hover variant="dark" >
               <thead>
                 <tr>
                   <th>Id</th>
                   <th>Name</th>
                   <th>Email</th>
+                  <th>Contact</th>
+                  <th  colSpan={2}>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -44,18 +48,24 @@ const TableSaga = () => {
                       <td>{i}</td>
                       <td>{item.name}</td>
                       <td>{item.email}</td>
+                      <td>{item.number}</td>
                       <td>
-                        <button 
-                        onClick={() => handleDelete(i)}>Delete</button>
+                      <Button 
+                          variant="warning"
+                          onClick={() => handleDelete(i)}>Delete
+                      </Button>
                       </td>
                       <td>
-                        <button onClick={() => handleEdit(i)}>Edit</button>
+                      <Button 
+                             variant="info"
+                             onClick={() => handleEdit(i)}>Edit
+                      </Button>
                       </td>
                     </tr>
                   );
                 })}
               </tbody>
-            </table>
+            </Table>
           </div>
         ) : (
           <div>

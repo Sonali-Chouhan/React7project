@@ -1,6 +1,20 @@
 import {Get_user, delete_user, update_user} from "../Type"
 const initialState = {
-    item: [],
+    item: [{
+      id:"0",
+      name:"sonali",
+      email:"sonali@gmail.com",
+      password:"1234",
+      number:"1234567890"
+    },
+    {
+      id:"1",
+      name:"Text",
+      email:"Text@gmail.com",
+      password:"4321",
+      number:"0987654321"
+    }
+  ],
   };
   export const Fromreducer = function (state = initialState, action) {
  

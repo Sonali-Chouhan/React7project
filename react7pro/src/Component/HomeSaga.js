@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { getdata } from '../Redux/Action/ActionSaga';
 import { useNavigate } from 'react-router'
+import Button from 'react-bootstrap/Button'
 
 const HomeSaga = () => {
 
@@ -15,8 +16,12 @@ const getApi = () =>{
  
   return (
     <div>
-      <h1>HomeSaga</h1>
-      <button onClick={getApi}>Show Api Data</button>
+      <h1>Home Page</h1>
+      <Button 
+             variant="success"
+             onClick={getApi}>Show Api Data
+      </Button>
+    
     </div>
   )
 }

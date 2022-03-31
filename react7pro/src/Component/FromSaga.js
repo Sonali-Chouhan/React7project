@@ -16,6 +16,9 @@ const FromC = () => {
   const handleRegistration = (user) => {
     if(id){
       dispatch(Updata_User(id,user))
+      toast.success("Successfully Update", {
+        icon: "🟢",
+      });
        }else{
         dispatch(get_user(user));
         toast.success("Successfully Submit", {
@@ -37,6 +40,7 @@ const FromC = () => {
       setValue("name",item.name)
       setValue("email",item.email)
       setValue("password",item.password)
+      setValue("number",item.number)
     }
   },[])
 
@@ -51,7 +55,8 @@ const FromC = () => {
             placeholder="Enter User Name"
             {...register("name", { required: true })}
           />
-          {errors.name && <p>This is required.</p>}
+          <p className="error"> {errors.name && <p>This is required.</p>}</p>
+          
         </div>
         <div>
           <label>Email</label>
@@ -59,9 +64,15 @@ const FromC = () => {
             type="email"
             name="email"
             placeholder="Enter User Email"
-            {...register("email", { required: true })}
+            {...register("email", { required: true ,pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,}
+              
+            })}
+            
           />
-          {errors.email?.type === "required" && "Email Address is required"}
+          <p className="error">{errors.email?.type === "required" && "Email Address is required"}</p>
+          <p  className="error">{errors.email?.type === "pattern" && "must add Valid email"}</p>
+         
         </div>
         <div>
           <label>Password</label>
@@ -71,14 +82,27 @@ const FromC = () => {
             placeholder="Enter User Password"
             {...register("password", { required: true })}
           />
-          {errors.password?.type === "required" && "Password  required"}
+         <p className="error">{errors.password?.type === "required" && "Password  required"}</p> 
+        </div>
+        <div>
+          <label>Contact</label>
+          <input
+            type="number"
+            name="number"
+            placeholder="Enter User Password"
+            {...register("number", { required: true,minLength:10,maxLength: 10})}
+          />
+          <p className="error">  {errors.number?.type === "required" && "Number required"}</p>
+          <p className="error">  {errors.number?.type=== "minLength" && "Valid Number"}</p>
+         
+         
         </div>
         {
           id ?
           (
             <span>
               <button type="submit">Save</button>{' '}
-              <button type="button"
+              <button type="submit"
               onClick={handleCancel}>Cancel</button>
             </span>
            )

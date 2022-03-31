@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
+import Table from "react-bootstrap/Table";
 const ApiTable = () => {
   const item = useSelector((state) => state.sagaReducer.Data);
   const item_list = item.data;
@@ -13,9 +14,9 @@ const ApiTable = () => {
         <h1>API Table</h1>
         {item_list ? (
           <div>
-            <table>
+            <Table striped bordered hover size="sm">
               <thead>
-                <tr>
+                 <tr>
                   <th>Id</th>
                   <th>User_ID</th>
                   <th>Title</th>
@@ -34,7 +35,7 @@ const ApiTable = () => {
                   );
                 })}
               </tbody>
-            </table>
+            </Table>
           </div>
         ) : (
           <div>
@@ -47,3 +48,6 @@ const ApiTable = () => {
 };
 
 export default ApiTable;
+
+ 
+
