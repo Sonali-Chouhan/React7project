@@ -6,6 +6,7 @@ const About = () => {
     useEffect(()=>{
        console.log("bh",a)
     },[a])
+    //handle submit function coll // a.handleSubmit //function
     a.handleSubmit()
   return (
     <div>

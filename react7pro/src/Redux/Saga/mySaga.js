@@ -46,6 +46,8 @@ function* Get_Item(action){
    
   
   }
+ 
+ 
 export default function* Data_Send(){
     yield takeEvery(Get_Data,Get_Api)
     yield takeEvery(Get_User,Get_Item)

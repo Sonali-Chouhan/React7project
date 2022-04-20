@@ -36,11 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
 .header{
+  text-align: right;
   background-color: rgb(47, 84, 99);
   padding: 20px 0px;
 }
 .header a{
+  
   text-decoration: none;
   padding: 0px 20px;
   color: rgb(235, 222, 222);
