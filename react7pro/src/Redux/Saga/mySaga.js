@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { delete_user, delete_User, Get_Data,Get_data,Get_User,Get_user,update_User,update_user} from "../Type"
 import { get_user,Delete_User,Updata_User} from '../Action/ActionSaga'
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
+import { call, put, takeEvery} from 'redux-saga/effects'
 function* Get_Api(){
     
     try {
